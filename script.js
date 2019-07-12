@@ -47,7 +47,7 @@ function game() {
     var player = 0;
     var computer = 0;
     
-    while (player <= 5 && computer <= 5) {
+    while (player < 5 && computer < 5) {
         var playerMove = prompt("Enter your move:", "");
         var computerMove = computerPlay();
         var currentRound = playRound(playerMove, computerMove);
@@ -64,10 +64,10 @@ function game() {
         }    
     }
 
-    if (player >= 5) {
+    if (player == 5) {
         console.log("You Won!");
     } 
-    if (computer >= 5) {
+    if (computer == 5) {
         console.log("You Lost!");
     }
 }
