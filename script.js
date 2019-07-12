@@ -2,7 +2,7 @@ var options = [
     'rock',
     'paper',
     'scissors'
-]
+];
 
 function computerPlay() {
     var randomOption = Math.floor(Math.random() * options.length);
@@ -11,48 +11,55 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return 'The game is a tie!';
+        // return 'The game is a tie!';
+        return 2;
     }
     else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
-            return 'You Lose!';
+            //return 'You Lose!';
+            return 0;
         } else {
-            return 'You win!';
+            // return 'You win!';
+            return 1;
         }     
     }
     else if (playerSelection === 'paper') {
         if (computerSelection === 'scissors') {
-            return 'You Lose!';
+            // return 'You Lose!';
+            return 0;
         } else {
-            return 'You Win!';
+            // return 'You Win!';
+            return 1;
         }
     }
     else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
-            return 'You Lose!';
+            // return 'You Lose!';
+            return 0;
         } else {
-            return 'You Win!';
+            // return 'You Win!';
+            return 1;
         }
     }
     } 
 
 function game() {
-    let player = 0;
-    let computer = 0;
+    var player = 0;
+    var computer = 0;
     
-    while (player || computer <= 5) {
+    while (player <= 5 && computer <= 5) {
         var playerMove = prompt("Enter your move:", "");
         var computerMove = computerPlay();
-        let currentRound = playRound(playerMove, computerMove);
-        if (currentRound === 'You win!') {
+        var currentRound = playRound(playerMove, computerMove);
+        if (currentRound === 1) {
             player++;
             console.log("PlayerScore: " + player);
         }
-        else if (currentRound === 'You Lose!') {
+        else if (currentRound === 0) {
             computer++;
             console.log("ComputerScore: " + computer);
         }
-        else if (currentRound === 'The game is a tie!') {
+        else if (currentRound === 2) {
             console.log("Tie!");
         }    
     }
